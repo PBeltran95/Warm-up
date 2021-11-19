@@ -1,6 +1,6 @@
 fun main() {
 
-    printDireccionFormateada(direccion1)
+    printDireccionFormateada(direccion2)
     formatArrayToString(arrayOf(direccion1,direccion2, direccion3))
 
 }
@@ -15,18 +15,18 @@ fun formatArrayToString(directions:Array<Direction>){
 
 
 fun printDireccionFormateada(direction: Direction) {
+
     with(direction) {
+        val text = "Hola a todos, vivo en $pais, soy de la provincia de $provincia, en el partido de $partido, " +
+                "vivo en la calle ${calle.keys.first().nombreDeCalle} ${calle.keys.first().numero}," +
+                " que queda entre las calles ${calle.values.first().entreCalle1} y ${calle.values.first().entreCalle2}, " +
+                "ademas, mi codigo postal es $codigoPostal."
+
         println(
             if (direction.piso == null && direction.departament == null) {
-                "Hola a todos, vivo en $pais, soy de la provincia de $provincia, en el partido de $partido, " +
-                        "vivo en la calle ${calle.keys.first().nombreDeCalle} ${calle.keys.first().numero}," +
-                        " que queda entre las calles ${calle.values.first().entreCalle1} y ${calle.values.first().entreCalle2}, " +
-                        "ademas, mi codigo postal es $codigoPostal."
+                text
             } else {
-                "Hola a todos, vivo en $pais, soy de la provincia de $provincia, en el partido de $partido, " +
-                        "vivo en la calle ${calle.keys.first().nombreDeCalle} ${calle.keys.first().numero}, " +
-                        "que queda entre las calles ${calle.values.first().entreCalle1} y ${calle.values.first().entreCalle2}, " +
-                        "ademas, mi codigo postal es $codigoPostal, vivo en el piso: $piso y mi departamento es el numero $departament."
+                "$text Y vivo en el piso: $piso y mi departamento es el numero $departament."
             }
         )
     }
